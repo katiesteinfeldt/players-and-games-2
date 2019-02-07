@@ -20,6 +20,7 @@ function onReady() {
 function addPlayer() {
     let playerName = $('#playerNameInput').val();
     $('#playerNameInput').val('');
+    $('#listOfPlayers').empty();
     $.ajax({
         type: 'POST',
         url: '/new',
@@ -28,7 +29,6 @@ function addPlayer() {
         }
         
     }).then(function () {
-        $('#listOfPlayers').empty();
         $.ajax({
             type: 'GET',
             url: '/players'
