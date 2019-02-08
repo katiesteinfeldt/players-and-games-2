@@ -1,1 +1,1 @@
-module.exports = [{ playerName: 'Katie', playerScore: 12, opponentName: 'David', opponentScore: 10, winner: 'Katie' }];
+module.exports = [];

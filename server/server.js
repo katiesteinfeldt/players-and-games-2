@@ -26,6 +26,15 @@ app.post('/new', (req, res) => {
 app.post('/new-game', (req, res) => {
     req.body;
     gamesList.push(req.body);
+    if (req.body.playerScore > req.body.opponentScore) {
+        req.body.winner = req.body.playerName;
+    }
+    else if (req.body.opponentScore > req.body.playerScore) {
+        req.body.winner = req.body.opponentName;
+    }
+    else {
+        req.body.winner = 'Tie';
+    }
     res.sendStatus(201);
 }); 
 
