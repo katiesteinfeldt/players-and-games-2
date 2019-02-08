@@ -13,7 +13,8 @@ function onReady() {
             `)
         }
     })
-   
+   $('#addGameButton').on('click', addGame);
+   addGame();
 }//end onReady
 
 
@@ -41,3 +42,44 @@ function addPlayer() {
         })
     })
 }//end addPlayer
+
+function addGame() {
+    console.log('add game has been clicked');
+    let playerScore = $('#playerScoreInput').val();
+    let opponentScore = $('#opponentScoreInput').val();
+    let playerNameDropdown = $('#playerNameDropdown').val();
+    let opponentNameDropdown = $('#opponentNameDropdown').val();
+    console.log(playerScore);
+    console.log(opponentScore);
+    $('#playerScoreInput').val('');
+    $('#opponentScoreInput').val('');
+    $('#gameResults').empty();
+    $.ajax({
+        type: 'POST',
+        url: '/new-game',
+        data: {
+            playerName: playerNameDropdown,
+            playerScore: playerScore,
+            opponentName: opponentNameDropdown,
+            opponentScore: opponentScore,
+            winner: 'Katie'
+        }
+    }).then(function (){
+        $.ajax({
+            type: 'GET',
+            url: '/games'
+        }).then(function (games) {
+            for (let i = 0; i < games.length; i++) {
+            $('#gameResults').append(`
+                <tr>
+                    <td>${games[i].playerName}</td>
+                    <td>${games[i].playerScore}</td>
+                    <td>${games[i].opponentName}</td>
+                    <td>${games[i].opponentScore}</td>
+                    <td>Katie</td>
+            `)
+                
+            }
+        })
+    })
+}

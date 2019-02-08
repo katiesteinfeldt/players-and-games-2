@@ -13,5 +13,44 @@
         <ul id="listOfPlayers">
         </ul>
     </div>
+    <h4>Games</h4>
+    <div>
+        <span>Player:</span> <select class="playerDropdown" id="playerNameDropdown">
+            <option value="katie">Katie</option>
+            <option value="tj">TJ</option>
+            <option value="david">David</option>
+            <option value="spencer">Spencer</option>
+        </select>
+
+        <span>versus Opponent:</span> <select class="opponentDropdown" id="opponentNameDropdown">
+            <option value="katie">Katie</option>
+            <option value="tj">TJ</option>
+            <option value="david">David</option>
+            <option value="spencer">Spencer</option>
+        </select>
+        
+    </div>
+    <pre></pre>
+    <div>
+      <span>Player Score:</span> <input id="playerScoreInput"></input>
+      <span>Opponent Score:</span> <input id="opponentScoreInput"></input>
+    </div>
+    <button id="addGameButton">Add Game</button>
+    <pre></pre>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Player Score</th>
+                    <th>Opponent Name</th>
+                    <th>Opponent Score</th>
+                    <th>Winner</th>
+                </tr>
+            </thead>
+            <tbody id="gameResults">
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
